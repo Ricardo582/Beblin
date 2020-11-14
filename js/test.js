@@ -15,6 +15,14 @@ function test() {
 };
 
 function next() {
+    var pagePoints = document.getElementsByClassName("p"+page);
+    var points = 0;
+    
+    for (var i = 0; i < pagePoints.length; i++) {
+        points += parseInt(pagePoints[i].value);
+    }
+    console.log(points);
+
     page++;
     console.log(page);
 
@@ -25,6 +33,12 @@ function next() {
             break;
         
         case 2:
+            if (points < 10 || points > 10) {
+                alert("Asegurate de haber repartido solo 10 puntos.");
+                page--;
+                break;
+            }
+
             var current = document.getElementsByClassName("test-1");
             current[0].setAttribute("class", "container-center test-1 hidden");
             var next = document.getElementsByClassName("test-2");

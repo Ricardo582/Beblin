@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="js/test.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <title>Roles de Belbin</title>
+</head>
+<body>
+    <div class="container p-4 shadow p-3 mb-5 bg-white rounded">
+        <h1 class="display-2 text-center">Roles de Belbin</h1>
+    </div>
+    
+    <!--main-->
+    <div class="main">
+        <div class="container-center">
+            <div class="card p-3" style="width: 30rem;">
+                <div class="card-body">
+                    <legend class="card-title text-center">Generar equipos</legend>
+                    <label for="numEquipos">Número de equipos: </label>
+                    <input type="number" class="form-control" name="" id="numEquipos" required>
+                    <label for="numPersonas">Cantidad de personas a evaluar: </label>
+                    <input type="number" class="form-control" name="" id="numPersonas" required>
+                    <br/>
+                    <button type="submit" class="btn btn-primary" onclick="test()">Iniciar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--Test-->
+    <!--Pagina 1-->
+    <div class="container-center test-1 hidden">
+        <div class="card p-4" style="width: 50rem;">
+            <form>
+                <h2 class="card-title text-center">I. ¿Qué creo que puedo aportar al equipo?</h2>
+                <br/>
+                <div class="form-group row">
+                    <label for="p1A" class="col-sm-10 col-form-label">
+                        A. Pienso que puedo identificar y aprovechar nuevas oportunidades rápidamente.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p1A">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p1B" class="col-sm-10 col-form-label">
+                        B. Puedo trabajar bien con una amplia gama de personas. 
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p1B">
+                    </div>
+                </div>
+                    
+                <div class="form-group row">
+                    <label for="p1C" class="col-sm-10 col-form-label">
+                        C. Generar ideas es uno de mis activos naturales.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p1C">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p1D" class="col-sm-10 col-form-label">
+                        D. Mi habilidad se basa en ser capaz de hacer hablar a las personas cuando detecto que pueden aportar algo valioso a los objetivos del equipo.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p1D">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p1E" class="col-sm-10 col-form-label">
+                        E. Mi capacidad para terminar tareas tiene mucho que ver con mi efectividad personal.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p1E">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p1F" class="col-sm-10 col-form-label">
+                        F. Estoy preparado para afrontar una impopularidad temporal si esto conduce al final a unos resultados que valen la pena.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p1F">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p1G" class="col-sm-10 col-form-label">
+                        G. Detecto rápidamente qué es lo que probablemente funcionará en una situación que me es familiar.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p1G">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p1H" class="col-sm-10 col-form-label">
+                        H. Puedo ofrecer razones para diferentes alternativas de acción sin introducir ninguna preferencia o prejuicio.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p1H">
+                    </div>
+                </div>
+
+                <br/>
+                <div class="text-right">
+                    <div class="btn-group btn-group-lg" role="group">
+                        <a href="#" class="btn btn-primary" onclick="next()">Siguiente</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--Pagina 2-->
+    <div class="container-center test-2 hidden">
+        <div class="card p-4" style="width: 50rem;">
+            <form>
+                <h2 class="card-title text-center">II. Si tengo alguna limitación en lo que respecta al trabajo en equipo, ésta seria:</h2>
+                <br/>
+                <div class="form-group row">
+                    <label for="p2A" class="col-sm-10 col-form-label">
+                        A. No me encuentro a gusto a no ser que las reuniones estén bien estructuradas y controladas y generalmente bien dirigidas.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p2A">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p2B" class="col-sm-10 col-form-label">
+                        B. Soy propenso a ser demasiado generoso con aquellos que tienen un punto de vista válido pero no ha podido ser expuesto adecuadamente.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p2B">
+                    </div>
+                </div>
+                    
+                <div class="form-group row">
+                    <label for="p2C" class="col-sm-10 col-form-label">
+                        C. Tengo tendencia a hablar mucho cuando en el grupo se tratan nuevas ideas.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p2C">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p2D" class="col-sm-10 col-form-label">
+                        D. Mi actitud objetiva me dificulta participar enseguida y de forma entusiasta con mis compañeros.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p2D">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p2E" class="col-sm-10 col-form-label">
+                        E. Si se necesita acabar una cosa, a veces soy visto como enérgico y autoritario.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p2E">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p2F" class="col-sm-10 col-form-label">
+                        F. Me cuesta ponerme al frente del equipo, quizás porque soy demasiado sensible a la atmósfera de grupo.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p2F">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p2G" class="col-sm-10 col-form-label">
+                        G. Tengo tendencia a quedarme absorto pensando en ideas que se me ocurren ideas y pierdo el hilo de lo que está pasando.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p2G">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p2H" class="col-sm-10 col-form-label">
+                        H. Mis compañeros tienden a percibirme como una persona que se preocupa innecesariamente por los detalles y por la posibilidad de que las cosas puedan ir mal.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p2H">
+                    </div>
+                </div>
+
+                <br/>
+                <div class="text-right">
+                    <div class="btn-group btn-group-lg" role="group">
+                        <a href="#" class="btn btn-primary" onclick="previous()">Anterior</a>
+                        <a href="#" class="btn btn-primary" onclick="next()">Siguiente</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--Pagina 3-->
+    <div class="container-center test-3 hidden">
+        <div class="card p-4" style="width: 50rem;">
+            <form>
+                <h2 class="card-title text-center">III. Cuando estoy implicado en un proyecto con otras personas:</h2>
+                <br/>
+                <div class="form-group row">
+                    <label for="p3A" class="col-sm-10 col-form-label">
+                        A. Tengo la habilidad de influenciar a las personas sin presionarlas.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p3A">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p3B" class="col-sm-10 col-form-label">
+                        B. Presto atención para evitar que se produzcan errores y omisiones.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p3B">
+                    </div>
+                </div>
+                    
+                <div class="form-group row">
+                    <label for="p3C" class="col-sm-10 col-form-label">
+                        C. Estoy presto para presionar y pasar acción a fin de asegurar que no se pierda el tiempo en las reuniones o perder el enfoque en el objetivo principal.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p3C">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p3D" class="col-sm-10 col-form-label">
+                        D. Se puede contar conmigo para contribuir en algo original.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p3D">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p3E" class="col-sm-10 col-form-label">
+                        E. Estoy siempre dispuesto para defender una buena sugerencia que contribuye al interés general.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p3E">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p3F" class="col-sm-10 col-form-label">
+                        F. Tengo muchas ganas de buscar lo último en nuevas ideas y desarrollos.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p3F">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p3G" class="col-sm-10 col-form-label">
+                        G. Creo que mi capacidad para ofrecer un análisis frío es apreciado por los demás.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p3G">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p3H" class="col-sm-10 col-form-label">
+                        H. Puede confiarse en mí para asegurar que la parte esencial del trabajo está bien organizada.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p3H">
+                    </div>
+                </div>
+
+                <br/>
+                <div class="text-right">
+                    <div class="btn-group btn-group-lg" role="group">
+                        <a href="#" class="btn btn-primary" onclick="previous()">Anterior</a>
+                        <a href="#" class="btn btn-primary" onclick="next()">Siguiente</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--Pagina 4-->
+    <div class="container-center test-4 hidden">
+        <div class="card p-4" style="width: 50rem;">
+            <form>
+                <h2 class="card-title text-center">IV. Mi enfoque característico respecto al trabajo en equipo es que:</h2>
+                <br/>
+                <div class="form-group row">
+                    <label for="p4A" class="col-sm-10 col-form-label">
+                        A. Tengo un discreto interés por conocer mejor a los compañeros.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p4A">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p4B" class="col-sm-10 col-form-label">
+                        B. No soy reacio a cuestionar las opiniones de los demás o a mantener un punto de vista minoritario.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p4B">
+                    </div>
+                </div>
+                    
+                <div class="form-group row">
+                    <label for="p4C" class="col-sm-10 col-form-label">
+                        C. Por lo general puedo encontrar argumentos para refutar una proposición errónea.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p4C">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p4D" class="col-sm-10 col-form-label">
+                        D. Creo que tengo talento para hacer que las cosas funcionen una vez que el plan tiene que ponerse en operación.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p4D">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p4E" class="col-sm-10 col-form-label">
+                        E. Tengo tendencia a evitar lo obvio y descolgarme con lo inesperado.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p4E">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p4F" class="col-sm-10 col-form-label">
+                        F. Soy perfeccionista con cualquier tarea que se me asigna en el equipo.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p4F">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p4G" class="col-sm-10 col-form-label">
+                        G. Estoy preparado para hacer uso de contactos fuera del equipo.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p4G">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p4H" class="col-sm-10 col-form-label">
+                        H. Aunque estoy interesado en todos los puntos de vista, no me cuesta decidirme cuando tiene que tomarse una decisión.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p4H">
+                    </div>
+                </div>
+
+                <br/>
+                <div class="text-right">
+                    <div class="btn-group btn-group-lg" role="group">
+                        <a href="#" class="btn btn-primary" onclick="previous()">Anterior</a>
+                        <a href="#" class="btn btn-primary" onclick="next()">Siguiente</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--Pagina 5-->
+    <div class="container-center test-5 hidden">
+        <div class="card p-4" style="width: 50rem;">
+            <form>
+                <h2 class="card-title text-center">V. Un trabajo me satisface porque:</h2>
+                <br/>
+                <div class="form-group row">
+                    <label for="p5A" class="col-sm-10 col-form-label">
+                        A. Me gusta analizar situaciones y sopesar todas las posibles opciones.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p5A">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p5B" class="col-sm-10 col-form-label">
+                        B. Me interesa encontrar soluciones prácticas a los problemas.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p5B">
+                    </div>
+                </div>
+                    
+                <div class="form-group row">
+                    <label for="p5C" class="col-sm-10 col-form-label">
+                        C. Me gusta percibir que estoy fomentando buenas relaciones laborales.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p5C">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p5D" class="col-sm-10 col-form-label">
+                        D. Puedo tener una fuerte influencia en las decisiones que se toman.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p5D">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p5E" class="col-sm-10 col-form-label">
+                        E. Puedo conocer personas que puedan tener algo nuevo que ofrecer.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p5E">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p5F" class="col-sm-10 col-form-label">
+                        F. Puedo facilitar que las personas convengan en una acción necesaria.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p5F">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p5G" class="col-sm-10 col-form-label">
+                        G. Me siento en mi elemento donde puedo dar a una tarea toda mi atención.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p5G">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p5H" class="col-sm-10 col-form-label">
+                        H. Me gusta trabajar en un campo en el cual pongo a prueba mi imaginación.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p5H">
+                    </div>
+                </div>
+
+                <br/>
+                <div class="text-right">
+                    <div class="btn-group btn-group-lg" role="group">
+                        <a href="#" class="btn btn-primary" onclick="previous()">Anterior</a>
+                        <a href="#" class="btn btn-primary" onclick="next()">Siguiente</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--Pagina 6-->
+    <div class="container-center test-6 hidden">
+        <div class="card p-4" style="width: 50rem;">
+            <form>
+                <h2 class="card-title text-center">VI. Si de repente se me asigna una tarea difícil, limitada en el tiempo y con personas desconocidas:</h2>
+                <br/>
+                <div class="form-group row">
+                    <label for="p1A" class="col-sm-10 col-form-label">
+                        A. Me gustaría retirarme a un rincón para idear una forma de salir de este callejón sin salida antes de desarrollar un plan.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p1A">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p1B" class="col-sm-10 col-form-label">
+                        B. Estaría dispuesto a trabajar con la persona que mostrase el enfoque más positivo, sin importar lo difícil que fuera trabajar con esta persona.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p1B">
+                    </div>
+                </div>
+                    
+                <div class="form-group row">
+                    <label for="p1C" class="col-sm-10 col-form-label">
+                        C. Encontraría una forma de reducir la magnitud de la tarea estableciendo cómo los diferentes compañeros podrían contribuir de la mejor manera.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p1C">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p1D" class="col-sm-10 col-form-label">
+                        D. Mi sentido natural de la urgencia ayudaría a asegurarnos que no fuéramos mal de tiempo.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p1D">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p1E" class="col-sm-10 col-form-label">
+                        E. Creo que permanecería tranquilo y mantendría mi capacidad para pensar con claridad.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p1E">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p1F" class="col-sm-10 col-form-label">
+                        F. Mantendría una constancia en el propósito a pesar de las presiones.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p1F">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p1G" class="col-sm-10 col-form-label">
+                        G. Estaría preparado para asumir el liderazgo si percibiera que el equipo no estuviera progresando.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p1G">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p1H" class="col-sm-10 col-form-label">
+                        H. Abriría debates con el objetivo de estimular nuevos pensamientos y hacer que algo se moviera.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p1H">
+                    </div>
+                </div>
+
+                <br/>
+                <div class="text-right">
+                    <div class="btn-group btn-group-lg" role="group">
+                        <a href="#" class="btn btn-primary" onclick="previous()">Anterior</a>
+                        <a href="#" class="btn btn-primary" onclick="next()">Siguiente</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--Pagina 7-->
+    <div class="container-center test-7 hidden">
+        <div class="card p-4" style="width: 50rem;">
+            <form>
+                <h2 class="card-title text-center">VII. En lo relativo a los problemas que me afectan al trabajar en equipo:</h2>
+                <br/>
+                <div class="form-group row">
+                    <label for="p7A" class="col-sm-10 col-form-label">
+                        A. Estoy dispuesto a demostrar mi impaciencia ante aquellos que obstruyen el progreso.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p7A">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p7B" class="col-sm-10 col-form-label">
+                        B. Los demás pueden criticarme por ser demasiado analítico y no lo suficientemente intuitivo.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p7B">
+                    </div>
+                </div>
+                    
+                <div class="form-group row">
+                    <label for="p7C" class="col-sm-10 col-form-label">
+                        C. Mi intención de asegurar que el trabajo se hace adecuadamente puede retrasar las actividades.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p7C">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p7D" class="col-sm-10 col-form-label">
+                        D. Tiendo a aburrirme fácilmente y confío en uno o dos compañeros estimulantes para motivarme.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p7D">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p7E" class="col-sm-10 col-form-label">
+                        E. Me cuesta arrancar a no ser que los objetivos estén claros.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p7E">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p7F" class="col-sm-10 col-form-label">
+                        F. A veces me cuesta explicar y clarificar las ideas complejas que se me ocurren.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p7F">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p7G" class="col-sm-10 col-form-label">
+                        G. Soy consciente que pido a los demás aquellas cosas que yo no puedo hacer.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p7G">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="p7H" class="col-sm-10 col-form-label">
+                        H. Dudo de exponer mis ideas cuando tengo que habérmelas con una oposición real.
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="number" name="" class="form-control" id="p7H">
+                    </div>
+                </div>
+
+                <br/>
+                <div class="text-right">
+                    <div class="btn-group btn-group-lg" role="group">
+                        <a href="#" class="btn btn-primary" onclick="previous()">Anterior</a>
+                        <a href="#" class="btn btn-primary" onclick="results()">Finalizar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+body{
+    background-image: url(../img/teams.png);
+    background-size: 130%;
+    background-position: top;
+}
+
+h1 {
+    font-family: 'Franklin Gothic Medium', sans-serif, 'Trebuchet MS', fantasy;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.222);
+    font-variant: small-caps;
+}
+
+.container-center {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.card {
+    transition-property: opacity;
+    transition-duration: 0.8s;
+    opacity: .8;
+}
+
+.card:hover {
+    opacity: 1;
+}
+
+.hidden {
+    display: none;
+}

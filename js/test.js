@@ -1,24 +1,59 @@
-var numEquipos;
-var numPe;
-var personas = new Array();
-var page = 0;
-var currIntegrante = 1;
+var numEquipos;     // Cantidad de equipos
+var numPe;      // Cantidad de personas
+var page = 0;   // Página acutal
+var currIntegrante = 1;     // Integrante actual
+var resIntegrante = [];      // Resultados de integrantes
 
-function test() {
+/*
+Estructura resIntegrante:
+     0           1          2          3          4            5              6            7            8
+0 <nombre> - <implant> - <coordi> - <shaper> - <plant> - <investigador> - <obs-eva> - <teamwork> - <finalizador>
+*/
+
+function intName() {
     numEquipos = document.getElementById("numEquipos");
     numPersonas = document.getElementById("numPersonas");
 
-    //Ocultar página inicial
+    // Ocultar página inicial
     var main = document.getElementsByClassName("main");
     main[0].setAttribute("class" , "main hidden");
 
-    next();
+    // Cargar página de nombre del integrante
+    var name = document.getElementsByClassName("name");
+    name[0].setAttribute("class" , "name");
+
+    document.getElementById("numIntegrante").innerHTML = "Integrante " + currIntegrante;
+
+    for(var i = 0; i < parseInt(numPersonas.value); i++) {
+        resIntegrante[i] = ["", 0, 0, 0, 0, 0, 0, 0, 0];
+    }
 };
 
+function beginTest() {
+    // Ocultar página de nombre del integrante
+    var name = document.getElementsByClassName("name");
+    name[0].setAttribute("class" , "name hidden");
+
+    // Comenzar test
+    next();
+}
+/*
+function nextTest() {
+    if (currIntegrante < numPersonas) {
+        page = 0;
+        
+        // Cargar página de nombre del integrante
+        var name = document.getElementsByClassName("name");
+        name[0].setAttribute("class" , "name");
+
+        var lastPage = document.getElementsByClassName("")
+    }
+}
+*/
 function next() {
     var pagePoints = document.getElementsByClassName("p"+page);
     var points = 0;
-    
+
     for (var i = 0; i < pagePoints.length; i++) {
         points += parseInt(pagePoints[i].value);
     }
@@ -183,3 +218,107 @@ function previous() {
             break;
     }
 };
+
+function resutls() {
+    // Guardar nombre del integrante
+    var intName = document.getElementById("nombre");
+    resIntegrante[currIntegrante-1][0] = intName.value;
+    intName.value = "";
+
+    console.log("Casilla nombre: " + intName.value);
+    console.log("Nombre: " + resIntegrante[currIntegrante-1][0])
+
+    for (var i = 1; i <= 7; i++) {
+        var pagePoints = document.getElementsByClassName("p"+(i));
+
+        // Calcula los puntos de cada rol
+        switch(i) {
+            case 1:
+                resIntegrante[currIntegrante-1][1] += parseInt(pagePoints[6].value);
+                resIntegrante[currIntegrante-1][2] += parseInt(pagePoints[3].value);
+                resIntegrante[currIntegrante-1][3] += parseInt(pagePoints[5].value);
+                resIntegrante[currIntegrante-1][4] += parseInt(pagePoints[2].value);
+                resIntegrante[currIntegrante-1][5] += parseInt(pagePoints[0].value);
+                resIntegrante[currIntegrante-1][6] += parseInt(pagePoints[7].value);
+                resIntegrante[currIntegrante-1][7] += parseInt(pagePoints[1].value);
+                resIntegrante[currIntegrante-1][8] += parseInt(pagePoints[4].value);
+                break;
+
+            case 2:
+                resIntegrante[currIntegrante-1][1] += parseInt(pagePoints[0].value);
+                resIntegrante[currIntegrante-1][2] += parseInt(pagePoints[1].value);
+                resIntegrante[currIntegrante-1][3] += parseInt(pagePoints[4].value);
+                resIntegrante[currIntegrante-1][4] += parseInt(pagePoints[6].value);
+                resIntegrante[currIntegrante-1][5] += parseInt(pagePoints[2].value);
+                resIntegrante[currIntegrante-1][6] += parseInt(pagePoints[3].value);
+                resIntegrante[currIntegrante-1][7] += parseInt(pagePoints[5].value);
+                resIntegrante[currIntegrante-1][8] += parseInt(pagePoints[7].value);
+                break;
+
+            case 3:
+                resIntegrante[currIntegrante-1][1] += parseInt(pagePoints[7].value);
+                resIntegrante[currIntegrante-1][2] += parseInt(pagePoints[0].value);
+                resIntegrante[currIntegrante-1][3] += parseInt(pagePoints[2].value);
+                resIntegrante[currIntegrante-1][4] += parseInt(pagePoints[3].value);
+                resIntegrante[currIntegrante-1][5] += parseInt(pagePoints[5].value);
+                resIntegrante[currIntegrante-1][6] += parseInt(pagePoints[6].value);
+                resIntegrante[currIntegrante-1][7] += parseInt(pagePoints[4].value);
+                resIntegrante[currIntegrante-1][8] += parseInt(pagePoints[1].value);
+                break;
+
+            case 4:
+                resIntegrante[currIntegrante-1][1] += parseInt(pagePoints[3].value);
+                resIntegrante[currIntegrante-1][2] += parseInt(pagePoints[7].value);
+                resIntegrante[currIntegrante-1][3] += parseInt(pagePoints[1].value);
+                resIntegrante[currIntegrante-1][4] += parseInt(pagePoints[4].value);
+                resIntegrante[currIntegrante-1][5] += parseInt(pagePoints[6].value);
+                resIntegrante[currIntegrante-1][6] += parseInt(pagePoints[2].value);
+                resIntegrante[currIntegrante-1][7] += parseInt(pagePoints[0].value);
+                resIntegrante[currIntegrante-1][8] += parseInt(pagePoints[5].value);
+                break;
+
+            case 5:
+                resIntegrante[currIntegrante-1][1] += parseInt(pagePoints[1].value);
+                resIntegrante[currIntegrante-1][2] += parseInt(pagePoints[5].value);
+                resIntegrante[currIntegrante-1][3] += parseInt(pagePoints[3].value);
+                resIntegrante[currIntegrante-1][4] += parseInt(pagePoints[7].value);
+                resIntegrante[currIntegrante-1][5] += parseInt(pagePoints[4].value);
+                resIntegrante[currIntegrante-1][6] += parseInt(pagePoints[0].value);
+                resIntegrante[currIntegrante-1][7] += parseInt(pagePoints[2].value);
+                resIntegrante[currIntegrante-1][8] += parseInt(pagePoints[6].value);
+                break;
+
+            case 6:
+                resIntegrante[currIntegrante-1][1] += parseInt(pagePoints[5].value);
+                resIntegrante[currIntegrante-1][2] += parseInt(pagePoints[2].value);
+                resIntegrante[currIntegrante-1][3] += parseInt(pagePoints[6].value);
+                resIntegrante[currIntegrante-1][4] += parseInt(pagePoints[0].value);
+                resIntegrante[currIntegrante-1][5] += parseInt(pagePoints[7].value);
+                resIntegrante[currIntegrante-1][6] += parseInt(pagePoints[4].value);
+                resIntegrante[currIntegrante-1][7] += parseInt(pagePoints[1].value);
+                resIntegrante[currIntegrante-1][8] += parseInt(pagePoints[3].value);
+                break;
+
+            case 7:
+                resIntegrante[currIntegrante-1][1] += parseInt(pagePoints[4].value);
+                resIntegrante[currIntegrante-1][2] += parseInt(pagePoints[6].value);
+                resIntegrante[currIntegrante-1][3] += parseInt(pagePoints[0].value);
+                resIntegrante[currIntegrante-1][4] += parseInt(pagePoints[5].value);
+                resIntegrante[currIntegrante-1][5] += parseInt(pagePoints[3].value);
+                resIntegrante[currIntegrante-1][6] += parseInt(pagePoints[1].value);
+                resIntegrante[currIntegrante-1][7] += parseInt(pagePoints[7].value);
+                resIntegrante[currIntegrante-1][8] += parseInt(pagePoints[2].value);
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    for (var i = 0; i < 9; i++) {
+        console.log(i + ": " + resIntegrante[currIntegrante-1][i]);
+    }
+
+    // Encuesta para siguiente persona
+    //nextTest();    
+}

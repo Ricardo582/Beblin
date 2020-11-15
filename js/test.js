@@ -37,19 +37,30 @@ function beginTest() {
     // Comenzar test
     next();
 }
-/*
+
 function nextTest() {
-    if (currIntegrante < numPersonas) {
+    // Ocultar última página de la encuesta
+    var lastPage = document.getElementsByClassName("test-7");
+    lastPage[0].setAttribute("class", "container-center test-7 hidden");
+
+    // Verficar que aún faltan integrantes de realizar la encuesta
+    if (currIntegrante < parseInt(numPersonas.value)) {
         page = 0;
-        
+        currIntegrante++;
+
         // Cargar página de nombre del integrante
         var name = document.getElementsByClassName("name");
         name[0].setAttribute("class" , "name");
 
-        var lastPage = document.getElementsByClassName("")
+        return;
     }
+
+    // Mostrar container de tabla de resultados
+    var container = document.getElementsByClassName("results");
+    container[0].setAttribute("class", "results");
+    finalResults();
 }
-*/
+
 function next() {
     var pagePoints = document.getElementsByClassName("p"+page);
     var points = 0;
@@ -320,5 +331,26 @@ function resutls() {
     }
 
     // Encuesta para siguiente persona
-    //nextTest();    
+    nextTest();    
+}
+
+function finalResults() {
+    document.getElementById("finalResults").innerHTML =
+        "<table class='table'>" +
+            "<thead class='thead-dark'>" +
+                "<tr>" +
+                    "<th scope='col'>#</th>" +
+                    "<th scope='col'>Integrante</th>" +
+                    "<th scope='col'>Rol</th>" +
+                "</tr>" +
+            "</thead>" +
+            "<tbody>" +
+                "<tr>" +
+                    "<th scope='col'>1</th>" +
+                    "<td>Carlitos</td>" +
+                    "<td>Implementador</td>" +
+                "</tr>" +
+            "</tbody>" +
+        "</table>"
+    ;
 }

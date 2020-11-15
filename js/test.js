@@ -2,6 +2,7 @@ var numEquipos;
 var numPe;
 var personas = new Array();
 var page = 0;
+var currIntegrante = 1;
 
 function test() {
     numEquipos = document.getElementById("numEquipos");
@@ -15,16 +16,18 @@ function test() {
 };
 
 function next() {
+    console.log("Page: " + page);
     var pagePoints = document.getElementsByClassName("p"+page);
     var points = 0;
     
     for (var i = 0; i < pagePoints.length; i++) {
         points += parseInt(pagePoints[i].value);
+        console.log("PP" + i + ":" + pagePoints[i].value);
     }
-    console.log(points);
+    console.log("Points: " + points);
 
     page++;
-    console.log(page);
+    console.log("Page+1: " + page);
 
     switch(page) {
         case 1:

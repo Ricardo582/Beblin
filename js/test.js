@@ -46,6 +46,11 @@ function next() {
             break;
 
         case 3:
+            if (points < 10 || points > 10) {
+                alert("Asegurate de haber repartido solo 10 puntos.");
+                page--;
+                break;
+            }
             var current = document.getElementsByClassName("test-2");
             current[0].setAttribute("class", "container-center test-2 hidden");
             var next = document.getElementsByClassName("test-3");
@@ -53,6 +58,11 @@ function next() {
             break;
 
         case 4:
+            if (points < 10 || points > 10) {
+                alert("Asegurate de haber repartido solo 10 puntos.");
+                page--;
+                break;
+            }
             var current = document.getElementsByClassName("test-3");
             current[0].setAttribute("class", "container-center test-3 hidden");
             var next = document.getElementsByClassName("test-4");
@@ -60,6 +70,11 @@ function next() {
             break;
 
         case 5:
+            if (points < 10 || points > 10) {
+                alert("Asegurate de haber repartido solo 10 puntos.");
+                page--;
+                break;
+            }
             var current = document.getElementsByClassName("test-4");
             current[0].setAttribute("class", "container-center test-4 hidden");
             var next = document.getElementsByClassName("test-5");
@@ -67,6 +82,11 @@ function next() {
             break;
 
         case 6:
+            if (points < 10 || points > 10) {
+                alert("Asegurate de haber repartido solo 10 puntos.");
+                page--;
+                break;
+            }
             var current = document.getElementsByClassName("test-5");
             current[0].setAttribute("class", "container-center test-5 hidden");
             var next = document.getElementsByClassName("test-6");
@@ -74,6 +94,11 @@ function next() {
             break;
 
         case 7:
+            if (points < 10 || points > 10) {
+                alert("Asegurate de haber repartido solo 10 puntos.");
+                page--;
+                break;
+            }
             var current = document.getElementsByClassName("test-6");
             current[0].setAttribute("class", "container-center test-6 hidden");
             var next = document.getElementsByClassName("test-7");
@@ -81,6 +106,11 @@ function next() {
             break;
 
         case 8:
+            if (points < 10 || points > 10) {
+                alert("Asegurate de haber repartido solo 10 puntos.");
+                page--;
+                break;
+            }
             resutls();
             break;
 

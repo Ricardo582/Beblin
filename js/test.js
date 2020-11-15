@@ -3,11 +3,16 @@ var numPe;      // Cantidad de personas
 var page = 0;   // Página acutal
 var currIntegrante = 1;     // Integrante actual
 var resIntegrante = [];      // Resultados de integrantes
+var roles = [];
 
 /*
 Estructura resIntegrante:
      0           1          2          3          4            5              6            7            8
 0 <nombre> - <implant> - <coordi> - <shaper> - <plant> - <investigador> - <obs-eva> - <teamwork> - <finalizador>
+
+Estructura roles:
+     0         1          2
+0 <nombre> - <rol> - <asignado?>
 */
 
 function intName() {
@@ -26,6 +31,7 @@ function intName() {
 
     for(var i = 0; i < parseInt(numPersonas.value); i++) {
         resIntegrante[i] = ["", 0, 0, 0, 0, 0, 0, 0, 0];
+        roles[i] = ["", 0, false];
     }
 };
 
@@ -36,6 +42,23 @@ function beginTest() {
 
     // Comenzar test
     next();
+}
+
+function findRoles() {
+    // Se mapea el nombre del integrante con su rol
+    roles[currIntegrante-1][0] = resIntegrante[currIntegrante-1][0];
+    roles[currIntegrante-1][1] = 1;
+    var temp = resIntegrante[currIntegrante-1][1];
+
+    // Se obtiene el rol con mayor puntuación del integrante
+    for (var i = 1; i < 9; i++) {
+        if (temp < resIntegrante[currIntegrante-1][i]) {
+            roles[currIntegrante-1][1] = i;
+            temp = resIntegrante[currIntegrante-1][i];
+        }
+    }
+
+    console.log(roles[currIntegrante-1][0] + " " + roles[currIntegrante-1][1] + " " + roles[currIntegrante-1][2]);
 }
 
 function nextTest() {
@@ -49,6 +72,7 @@ function nextTest() {
         currIntegrante++;
 
         // Cargar página de nombre del integrante
+        document.getElementById("numIntegrante").innerHTML = "Integrante " + currIntegrante;
         var name = document.getElementsByClassName("name");
         name[0].setAttribute("class" , "name");
 
@@ -235,8 +259,7 @@ function resutls() {
     var intName = document.getElementById("nombre");
     resIntegrante[currIntegrante-1][0] = intName.value;
     intName.value = "";
-
-    console.log("Casilla nombre: " + intName.value);
+    
     console.log("Nombre: " + resIntegrante[currIntegrante-1][0])
 
     for (var i = 1; i <= 7; i++) {
@@ -326,15 +349,130 @@ function resutls() {
         }
     }
 
-    for (var i = 0; i < 9; i++) {
-        console.log(i + ": " + resIntegrante[currIntegrante-1][i]);
+    for (var i = 1; i < 9; i++) {
+        console.log(rol(i) + ": " + resIntegrante[currIntegrante-1][i]);
     }
+
+    // Se obtiene el rol con mayor puntuación de cada integrante
+    findRoles();
 
     // Encuesta para siguiente persona
     nextTest();    
 }
 
+function rol(rolNumber) {
+    // Regresa el nombre del rol
+    switch(rolNumber) {
+        case 1:
+            return "Implementador";
+            break;
+        
+        case 2:
+            return "Coordinador";
+            break;
+
+        case 3:
+            return "Shaper";
+            break;
+
+        case 4:
+            return "Plant";
+            break;
+
+        case 5:
+            return "Investigador de recursos";
+            break;
+
+        case 6:
+            return "Observador-Evaluador";
+            break;
+
+        case 7:
+            return "Trabajo de equipo";
+            break;
+
+        case 8:
+            return "Finalizador";
+            break;
+
+        default:
+            break;
+    }
+}
+
 function finalResults() {
+    for (var i = 1; i <= parseInt(numEquipos.value); i++) {
+        document.getElementById("finalResults").innerHTML += 
+            "<legend class='card-title text-center'>Equipo " + i + "</legend>" + 
+            "<table class='table'>" +
+                "<thead class='thead-dark'>" +
+                    "<tr>" +
+                        "<th scope='col'>#</th>" +
+                        "<th scope='col'>Integrante</th>" +
+                        "<th scope='col'>Rol</th>" +
+                    "</tr>" +
+                "</thead>" +
+                "<tbody id='team" + i + "'>" +
+                "</tbody>" +
+            "</table>"
+        ;      
+    }
+
+    // Genera tablas de equipos
+    for (var i = 1; i <= parseInt(numEquipos.value); i++) {
+        var role = 1;
+
+        // Recorre cada rol
+        for (var j = 1; j < 9; j++) {
+            var found = false;
+            var k = 0;  
+
+            // Busca un integrante con el rol "role"
+            while (!found) {
+                // Si se encuentra un integrante con ese rol y no está asignado a ningún equipo, lo asigna al equipo i
+                if (role == roles[k][1] && !roles[k][2]) {
+                    found = true;
+                    roles[k][2] = true;
+                    role++;
+
+                    document.getElementById("team" + i).innerHTML +=
+                    "<tr>"+
+                        "<th scope='col'>" + j + "</th>" +
+                        "<td>" + roles[k][0] + "</td>" +
+                        "<td>" + rol(roles[k][1]) + "</td>" +
+                    "</tr>"
+                    ;
+                }
+                k++;
+
+                // Si no encontró ninguna persona con ese rol, busca cualquiera que no esté asignado a un equipo
+                if (k >= parseInt(numPersonas.value)) {
+
+                    // Vuelve a recorrer todos las personas hasta que encuentre una no asignada
+                    for (var pos = 0; pos < parseInt(numPersonas.value); pos++) {
+
+                        // Si encuentra una no asignada, la asigna
+                        if (!roles[pos][2]) {
+                            roles[pos][2] = true;
+                            role++;
+
+                            document.getElementById("team" + i).innerHTML +=
+                                "<tr>"+
+                                    "<th scope='col'>" + j + "</th>" +
+                                    "<td>" + roles[pos][0] + "</td>" +
+                                    "<td>" + rol(roles[pos][1]) + "</td>" +
+                                "</tr>"
+                            ;
+                            pos = parseInt(numPersonas.value);
+                        }
+                    }
+                    found = true;
+                }
+            }
+        }
+    }
+
+    /*
     document.getElementById("finalResults").innerHTML =
         "<table class='table'>" +
             "<thead class='thead-dark'>" +
@@ -352,5 +490,5 @@ function finalResults() {
                 "</tr>" +
             "</tbody>" +
         "</table>"
-    ;
+    ;*/
 }

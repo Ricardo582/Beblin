@@ -19,9 +19,20 @@ function intName() {
     numEquipos = document.getElementById("numEquipos");
     numPersonas = document.getElementById("numPersonas");
 
+    if(parseInt(numEquipos.value) <= 0) {
+        alert("Asegurate de crear al menos un equipo.");
+        return;
+    }
+
+    if(parseInt(numPersonas.value) <= 0) {
+        alert("Asegurate de registrar al menos una persona.");
+        return;
+    }
+
     // Ocultar página inicial
     var main = document.getElementsByClassName("main");
     main[0].setAttribute("class" , "main hidden");
+    main[1].setAttribute("class" , "main hidden");
 
     // Cargar página de nombre del integrante
     var name = document.getElementsByClassName("name");
@@ -36,13 +47,19 @@ function intName() {
 };
 
 function beginTest() {
+    var intName = document.getElementById("nombre");
+    if (intName.value == "") {
+        alert("Escribe el nombre del integrante.");
+        return;
+    }
+
     // Ocultar página de nombre del integrante
     var name = document.getElementsByClassName("name");
     name[0].setAttribute("class" , "name hidden");
 
     // Comenzar test
     next();
-}
+};
 
 function findRoles() {
     // Se mapea el nombre del integrante con su rol
@@ -57,9 +74,7 @@ function findRoles() {
             temp = resIntegrante[currIntegrante-1][i];
         }
     }
-
-    console.log(roles[currIntegrante-1][0] + " " + roles[currIntegrante-1][1] + " " + roles[currIntegrante-1][2]);
-}
+};
 
 function nextTest() {
     // Ocultar última página de la encuesta
@@ -83,11 +98,12 @@ function nextTest() {
     var container = document.getElementsByClassName("results");
     container[0].setAttribute("class", "results");
     finalResults();
-}
+};
 
 function next() {
     var pagePoints = document.getElementsByClassName("p"+page);
     var points = 0;
+    var negativo = false;
 
     for (var i = 0; i < pagePoints.length; i++) {
         points += parseInt(pagePoints[i].value);
@@ -110,6 +126,19 @@ function next() {
                 break;
             }
 
+            // Verificar ningun valor negativo
+            for (var i = 0; i < 8; i++) {
+                if (parseInt(pagePoints[i].value) < 0) {
+                    alert("Asegurate de que no haya valores negativos.");
+                    negativo = true;
+                    page--;
+                    break;
+                }
+            }
+            if (negativo) {
+                break;
+            }
+
             var current = document.getElementsByClassName("test-1");
             current[0].setAttribute("class", "container-center test-1 hidden");
             var next = document.getElementsByClassName("test-2");
@@ -123,6 +152,20 @@ function next() {
                 page--;
                 break;
             }
+
+            // Verificar ningun valor negativo
+            for (var i = 0; i < 8; i++) {
+                if (parseInt(pagePoints[i].value) < 0) {
+                    alert("Asegurate de que no haya valores negativos.");
+                    negativo = true;
+                    page--;
+                    break;
+                }
+            }
+            if (negativo) {
+                break;
+            }
+
             var current = document.getElementsByClassName("test-2");
             current[0].setAttribute("class", "container-center test-2 hidden");
             var next = document.getElementsByClassName("test-3");
@@ -136,6 +179,20 @@ function next() {
                 page--;
                 break;
             }
+
+            // Verificar ningun valor negativo
+            for (var i = 0; i < 8; i++) {
+                if (parseInt(pagePoints[i].value) < 0) {
+                    alert("Asegurate de que no haya valores negativos.");
+                    negativo = true;
+                    page--;
+                    break;
+                }
+            }
+            if (negativo) {
+                break;
+            }
+
             var current = document.getElementsByClassName("test-3");
             current[0].setAttribute("class", "container-center test-3 hidden");
             var next = document.getElementsByClassName("test-4");
@@ -149,6 +206,20 @@ function next() {
                 page--;
                 break;
             }
+
+            // Verificar ningun valor negativo
+            for (var i = 0; i < 8; i++) {
+                if (parseInt(pagePoints[i].value) < 0) {
+                    alert("Asegurate de que no haya valores negativos.");
+                    negativo = true;
+                    page--;
+                    break;
+                }
+            }
+            if (negativo) {
+                break;
+            }
+
             var current = document.getElementsByClassName("test-4");
             current[0].setAttribute("class", "container-center test-4 hidden");
             var next = document.getElementsByClassName("test-5");
@@ -162,6 +233,20 @@ function next() {
                 page--;
                 break;
             }
+
+            // Verificar ningun valor negativo
+            for (var i = 0; i < 8; i++) {
+                if (parseInt(pagePoints[i].value) < 0) {
+                    alert("Asegurate de que no haya valores negativos.");
+                    negativo = true;
+                    page--;
+                    break;
+                }
+            }
+            if (negativo) {
+                break;
+            }
+
             var current = document.getElementsByClassName("test-5");
             current[0].setAttribute("class", "container-center test-5 hidden");
             var next = document.getElementsByClassName("test-6");
@@ -175,6 +260,20 @@ function next() {
                 page--;
                 break;
             }
+            
+            // Verificar ningun valor negativo
+            for (var i = 0; i < 8; i++) {
+                if (parseInt(pagePoints[i].value) < 0) {
+                    alert("Asegurate de que no haya valores negativos.");
+                    negativo = true;
+                    page--;
+                    break;
+                }
+            }
+            if (negativo) {
+                break;
+            }
+
             var current = document.getElementsByClassName("test-6");
             current[0].setAttribute("class", "container-center test-6 hidden");
             var next = document.getElementsByClassName("test-7");
@@ -188,6 +287,20 @@ function next() {
                 page--;
                 break;
             }
+
+            // Verificar ningun valor negativo
+            for (var i = 0; i < 8; i++) {
+                if (parseInt(pagePoints[i].value) < 0) {
+                    alert("Asegurate de que no haya valores negativos.");
+                    negativo = true;
+                    page--;
+                    break;
+                }
+            }
+            if (negativo) {
+                break;
+            }
+            
             resutls();
             break;
 
@@ -349,6 +462,15 @@ function resutls() {
         }
     }
 
+    // Limpia los puntos
+    for (var i = 1; i <= 7; i++) {
+        var pagePoints = document.getElementsByClassName("p"+(i));
+
+        for (var j = 0; j < 8; j++) {
+            pagePoints[j].value = 0;
+        }
+    }
+
     for (var i = 1; i < 9; i++) {
         console.log(rol(i) + ": " + resIntegrante[currIntegrante-1][i]);
     }
@@ -358,7 +480,7 @@ function resutls() {
 
     // Encuesta para siguiente persona
     nextTest();    
-}
+};
 
 function rol(rolNumber) {
     // Regresa el nombre del rol
@@ -398,7 +520,7 @@ function rol(rolNumber) {
         default:
             break;
     }
-}
+};
 
 function finalResults() {
     for (var i = 1; i <= parseInt(numEquipos.value); i++) {
@@ -491,4 +613,4 @@ function finalResults() {
             "</tbody>" +
         "</table>"
     ;*/
-}
+};
